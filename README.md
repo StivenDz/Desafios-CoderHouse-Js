@@ -19,6 +19,7 @@ crear un algoritmo que repita un bloque de instrucciones.
 ✔Se aceptan numeros negativos \
 ✔Se aceptan numeros decimales tanto positivos como negativos ,con coma o con punto \
 ❌No se aceptan ceros | input vacio | Cancelar el prompt
+<img align="center" alt="doc" height="496" width="1160" src="https://stivendz.github.io/Desafios-CoderHouse-Js/doc/1erInput.jpg">
 
 - **Segundo, debes ingresar el numero Hasta el cual se va a multiplicar el primer numero ingresado.** \
 \
