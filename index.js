@@ -1,9 +1,9 @@
 let value,num;
 let salir = false;
 
-// se utilizo un setTimeout() para que carge el contenido html ya que los prompt y los alert lo impiden
-
-// lo utilice para que cargue el fondo negro y el texto, para que se ejecute despues de 2 segundos
+/* se utilizó un setTimeout() para que carge el contenido html ya que los prompt y los alert lo impiden
+ 
+lo utilicé para que cargue el fondo negro y el texto, para que se ejecute despues de 2 segundos*/
 
 setTimeout(()=>{ 
 
