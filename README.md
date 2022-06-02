@@ -1,6 +1,6 @@
 # Desafios-CoderHouse-Js
 
-<img align="right" alt="Coderhouse" height="200" width="200" src="https://stivendz.github.io/Desafios-CoderHouse-Js/coderhouse.jpeg">
+<img align="right" alt="Coderhouse" height="200" width="500" src="https://concentrika.ucentral.edu.co/wp-content/uploads/2021/11/coderhouse-logo.png">
 
 ### `Desafio #1`
 Tomando como base los ejemplos anteriores de la estructura: \
