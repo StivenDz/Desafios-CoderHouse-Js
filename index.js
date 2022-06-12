@@ -199,7 +199,7 @@ setTimeout(()=>{
     
             case 4:
                 console.clear();
-                let nameToBeDeleted = prompt('Ingrese el nombre del usuario a buscar');
+                let nameToBeDeleted = prompt('Ingrese el nombre del usuario a eliminar');
                 let indiceDelete = searchOne(nameToBeDeleted,users);
     
                 if (isNaN(indiceDelete)){
