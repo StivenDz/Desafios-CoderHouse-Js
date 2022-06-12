@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./coderhouse.jpeg" type="image/x-icon">
+
+    <title>Desafío: Crear un algoritmo utilizando un ciclo</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600;700&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            scroll-behavior: smooth;
+            font-family: 'Poppins';
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        body{
+            background: rgb(15,15,15);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        header{
+            position: absolute;
+            width: 100%;
+            height: 80px;
+            top: 0;
+            background: #000;
+        }
+        header img{
+            width: 100px;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1{
+           color: #fff;
+           font-weight: 400;
+           text-align: center;
+           margin-bottom: 35px;
+        }
+
+        h3{
+            color: #fff;
+            font-weight: 400;
+            margin-bottom: 35px;
+        }
+
+        .list{
+            padding-left: 100px;
+        }
+
+        .list > li{
+            color: #fff;
+            padding: 3px 0;
+        }
+
+        .list li ul li{
+            margin-left: 35px;
+        }
+
+        .m-b-20px{
+            margin-bottom: 20px;
+        }
+        .nice{
+            color: green;
+        }
+        .error{
+            color: red;
+        }
+
+        @media screen and (max-width:736px) {
+            h1{
+                font-size: 4vw;
+            }
+
+            .list{
+                padding-left: 40px;
+            }
+        }
+        @media screen and (max-width:455px) {
+            h1{
+                font-size: 4.7vw;
+                text-align: left;
+                padding-left: 5px;
+            }
+
+            .list{
+                padding-left: 22px;
+                padding-right: 6px;
+                font-size: 15px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <img src="./coderhouse.jpeg" alt="">
+    </header>
+    <h1>Desafío: Simulador Interactivo </h1>
+    <h3>Manejo De Usuarios</h3>
+
+    <!-- <ul class="list">
+        <li>
+            <ul>
+                Primero, debes Ingresar el numero el cual deseas saber sus tablas.
+                <li class="nice">
+                    Se aceptan numeros negativos
+                </li>
+                <li class="nice">
+                    Se aceptan numeros decimales tanto positivos como negativos ,con coma o con punto
+                </li>
+                <li class="m-b-20px error">
+                    No se aceptan ceros | input vacio | Cancelar el prompt
+                </li>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                Segundo, debes ingresar el numero Hasta el cual se va a multiplicar el primer numero ingresado.
+                <li class="nice">
+                    Se aceptan numeros negativos
+                </li>
+                <li class="nice">
+                    Se aceptan numeros decimales tanto positivos como negativos ,con coma o con punto, se transformará a entero, al siguiente numero <br> ej: (6,1 o 6.1 será igual a 7)
+                </li>
+                <li class="m-b-20px error">
+                    No se aceptan ceros | input vacio | Cancelar el prompt
+                </li>
+            </ul>
+        </li>
+        <li>
+            El Resultado se mostrará por la consola.
+        </li>
+    </ul> -->
+
+
+    <script src="./index.js"></script>
+
+    <!-- se utilizó un setTimeout() para que carge el contenido html ya que los prompt y los alert lo impiden, para que se ejecute despues de 2 segundos -->
+</body>
+</html>
