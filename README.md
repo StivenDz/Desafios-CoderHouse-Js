@@ -4,7 +4,7 @@
 
 ### `Desafio #2`
 
-crear un Simulador Interactivo
+Manejo de datos Y Asignacione de tareas
 
 
 [App Deployed](https://stivendz.github.io/Desafios-CoderHouse-Js/)
