@@ -4,7 +4,7 @@
 
 ### `Desafio #3`
 
-Manejo de datos Y Asignacione de tareas
+Manejo de datos Y Asignacione de tareas \
 ``(Uso de Arrays, Arrays Asociativos, JSON al full)``
 
 
