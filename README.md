@@ -2,7 +2,7 @@
 
 <img align="right" alt="Coderhouse" height="200" width="400" src="https://concentrika.ucentral.edu.co/wp-content/uploads/2021/11/coderhouse-logo.png">
 
-### `Desafio #2`
+### `Desafio #3`
 
 Manejo de datos Y Asignacione de tareas
 
