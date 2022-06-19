@@ -7,15 +7,15 @@ let users = [
         edad: 19,
         correo: 'ste@gmail.com',
         direccion: null,
-        tareas: ['Programar el backend','Aprender Reactjs','Actualizar las bases de datos','testing']
+        tareas: ['Programar el backend','Aprender Reactjs','Actualizar las bases de datos','Testing']
     },
     {
         nombre: 'Hai',
         apellido: 'Cameron',
         edad: 39,
         correo: 'hai@gmail.com',
-        direccion: 'calle 15 #24-22 San Pedro',
-        tareas: []
+        direccion: 'Calle 15 #24-22 San Pedro',
+        tareas: ['Programar el FrontEnd','Aprender Angular']
     },
     {
         nombre: 'Luana',
@@ -23,15 +23,23 @@ let users = [
         edad: 19,
         correo: 'Lua@gmail.com',
         direccion: null,
-        tareas: []
+        tareas: ['Crear La API','Aprender Reactjs']
     },
     {
         nombre: 'Sara',
         apellido: 'Ruiz',
         edad: 22,
         correo: 'saRuiz@gmail.com',
+        direccion: 'Calle 115 #54-22 Quinta B',
+        tareas: ['Programar el backend','Testing','Aprender React Native']
+    },
+    {
+        nombre: 'Mark',
+        apellido: 'Zuckerberg',
+        edad: 38,
+        correo: 'MarkZ@gmail.com',
         direccion: null,
-        tareas: []
+        tareas: ['Supervisar']
     }
 ];
 
@@ -150,7 +158,21 @@ setTimeout(()=>{
         switch (opcion) {
             case 1:
                 console.clear();
-                nombre = question(nombre, 'Ingresa el Nombre del nuevo usuario', true, false);
+                let ue = true;
+                do{
+                    nombre = question(nombre, 'Ingresa el Nombre del nuevo usuario', true, false);
+                    
+                    forue:
+                    for (let i = 0; i < users.length; i++) {
+                        if(users[i]['nombre'].toLowerCase() == nombre.toLowerCase()){
+                            console.log(`Este nombre de usuario ya está registrado`);
+                            break forue;
+                        }else{
+                            ue = false;
+                        }
+                    }
+                    
+                }while(ue);
                 apellido = question(apellido, 'Ingresa el Apellido del nuevo usuario', true, false);
                 edad = question(edad, 'Ingresa la edad del nuevo usuario', false, false);
                 correo = question(correo, 'Ingresa el Correo del nuevo usuario', true, false);
@@ -164,7 +186,7 @@ setTimeout(()=>{
                     direccion: direccion,
                     tareas: []
                 })
-                console.log("%cUsuario Registrado Satisfaactoriamente!", "color:green");
+                console.log("%cUsuario Registrado Satisfactoriamente!", "color:green");
                 break;
     
             case 2:
@@ -313,6 +335,7 @@ setTimeout(()=>{
                     break;
                 }
             case 7: // 7. Ver usuarios que tienen tareas
+                console.clear();
                 let haveTasks = [];
                 let someOne = false;
 
@@ -335,26 +358,44 @@ setTimeout(()=>{
 
                 break;
             case 8: // 8. Ver tareas
+                console.clear();
                 let allTasks = [];
                 let some = false;
-
+                let push = false;
                 for (let i = 0; i < users.length; i++) {
                     if(users[i]['tareas'].length > 0){
                         let t = users[i]['tareas'];
+
+                        forT:
                         for (let j = 0; j < t.length; j++) {
-                            
+                            if(allTasks.length > 0){
+                                for (let n = 0; n < allTasks.length; n++) {
+                                   if(allTasks[n] === t[j]){
+                                        continue forT;
+                                   }else{
+                                       push = true;
+                                   }
+                                }
+                                if(push){
+                                    allTasks.push(t[j]);
+                                    push = false;
+                                }
+                            }else{
+                                allTasks.push(t[j]);
+                            }
                         }
                         some = true;
                     }
                 }
+                allTasks.sort();
                 if(!some){
                     console.log('Ninguno tiene tareas!')
                 }else{
-                    let have = "";
-                    for (let i = 0; i < haveTasks.length; i++) {
-                        have += `\n- ${haveTasks[i]}`
+                    let h = "";
+                    for (let i = 0; i < allTasks.length; i++) {
+                        h += `\n- ${allTasks[i]}`
                     }
-                    console.log(have);
+                    console.log(h);
                 }
 
                 break;
