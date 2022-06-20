@@ -154,16 +154,16 @@ buttonExecute.addEventListener('click', () => {
                 usersList.innerHTML = htmlUsers;
                 do {
                     opcion = prompt(`
-                        1. Ingresar Usuario
-                        2. Ver Usuarios Y Sus Datos
-                        3. Buscar un Usuario
-                        4. Agregarle una tarea a un usuario
-                        5. Eliminar una tarea de un usuario
-                        6. Ver tareas de un usuario
-                        7. Ver usuarios que tienen tareas
-                        8. Ver tareas
-                        9. Eliminar un Usuario
-                        0. Salir
+    1. Ingresar Usuario
+    2. Ver Usuarios Y Sus Datos
+    3. Buscar un Usuario
+    4. Agregarle una tarea a un usuario
+    5. Eliminar una tarea de un usuario
+    6. Ver tareas de un usuario
+    7. Ver usuarios que tienen tareas
+    8. Ver tareas
+    9. Eliminar un Usuario
+    0. Salir
                     `);
 
                     if (opcion == null || opcion == undefined) {
