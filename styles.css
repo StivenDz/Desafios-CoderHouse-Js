@@ -45,6 +45,8 @@ main {
     color: #fff;
     margin-top: 5px;
     font-size: 20px;
+    top: 0;
+    text-align: center;
 }
 
 main .container {
@@ -53,6 +55,7 @@ main .container {
     margin-top: 25px;
     border-radius: 15px;
     border-top: 2px solid rgb(24, 24, 24);
+    position: relative;
 }
 
 header img {
@@ -129,6 +132,7 @@ h3 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .aviso #seconds {
@@ -189,7 +193,6 @@ h3 {
 
     transition: color 1s, box-shadow .5s;
     cursor: pointer;
-
 }
 
 .w-280px{
@@ -215,7 +218,7 @@ h3 {
     justify-content: center;
     flex-wrap: wrap;
     padding: 33px 30px;
-    margin-top: 40px;
+    margin-top:70px;
 }
 
 .wrap-table {
@@ -460,5 +463,17 @@ tbody tr:hover {
         padding-left: 22px;
         padding-right: 6px;
         font-size: 15px;
+    }
+}
+
+@media screen and (max-width:380px) {
+    .title{
+        animation: none;
+        white-space:initial;
+    }
+
+    .title h1{
+        text-align: center;
+        font-size: 22px;
     }
 }
