@@ -21,7 +21,7 @@ let users = [
         edad: 69,
         correo: 'juan@gmail.com',
         direccion: null,
-        tareas: ['Programar el Both con Atom', 'Aprender Svelte']
+        tareas: [] //'Programar el Both con Atom', 'Aprender Svelte'
     },
     {
         nombre: 'Luana',
@@ -55,7 +55,7 @@ let htmlUsers = ``;
 let listTasks = ``;
 let usTask;
 
-const updateUsers = (users) => {
+const updateTable = (users) => {
     htmlUsers = "";
     for (let i = 0; i < users.length; i++) {
         listTasks = ``;
@@ -65,11 +65,14 @@ const updateUsers = (users) => {
                 listTasks += `<p>-${usTask[j]}.</p>`;
             }
             htmlUsers += `<tr>
-            <td class="column1">${users[i]['nombre']}</td>
+            <td class="column1">${users[i]['nombre']}
+                <i id="${i}" class="fa-solid fa-plus add " title="add task"></i>
+                <i id="${i}" class="fa-solid fa-minus deleteTask" title="delete task"></i>
+            </td>
             <td class="column2">${users[i]['apellido']}</td>
             <td class="column3">${users[i]['edad']}</td>
             <td class="column4">${users[i]['correo']}</td>
-            <td class="column5">${users[i]['direccion']}</td>
+            <td class="column5"><p class="center">${users[i]['direccion']}</p></td>
             <td class="column6">${users[i]['tareas'].length}
                 <div class="entregas">
                     <button id ="entregas"><i class="fa-solid fa-caret-down"></i></button>
@@ -83,11 +86,14 @@ const updateUsers = (users) => {
         } else {
             listTasks = "<p>Doesn't Have</p>";
             htmlUsers += `<tr>
-            <td class="column1">${users[i]['nombre']}</td>
+            <td class="column1">${users[i]['nombre']}
+                <i id="${i}" class="fa-solid fa-plus add "title="add task"></i>
+                
+            </td>
             <td class="column2">${users[i]['apellido']}</td>
             <td class="column3">${users[i]['edad']}</td>
             <td class="column4">${users[i]['correo']}</td>
-            <td class="column5">${users[i]['direccion']}</td>
+            <td class="column5"><p class="center">${users[i]['direccion']}</p></td>
             <td class="column6">${users[i]['tareas'].length} <p class="text-right"> Doesn't Have</p>
             <i id="${i}" class="fa-solid fa-x delete" title="delete"></i>
             </td>
@@ -130,21 +136,99 @@ const updateUsers = (users) => {
             }
         })
     }
+    //add task
+
+    const addTask = document.querySelectorAll('.add');
+    const deleteTask = document.querySelectorAll('.deleteTask');
+
+    for (let i = 0; i < users.length; i++) {
+        addTask[i].addEventListener('click', () => {
+            const alert = document.querySelector('.alert');
+            const alertContainer = document.querySelector('.alert-container');
+            alertContainer.classList.add('show');
+            alert.innerHTML = `
+        <i id="closeAdd" class="fa-solid fa-x"></i>
+        <img class="img-alert" src="./coderhouse.jpeg" alt="">
+        <p>Que tarea deseas agregarle a ${users[i]['nombre']}?</p>
+        <form id="add">
+            <input class="new-user" id="new-task" name="new-task" type="text">
+            <button type="submit">Add</button>
+        </form>
+    `;
+            const newTaskInput = document.getElementById('new-task');
+            const closeAdd = document.getElementById('closeAdd');
+            closeAdd.addEventListener('click', () => {
+                alertContainer.classList.remove('show');
+            })
+
+            const formAdd = document.getElementById('add');
+            formAdd.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const formtask = new FormData(e.target);
+                let newTask = formtask.get('new-task');
+                if (newTask.length < 4) {
+                    invalid(newTaskInput);
+                } else {
+                    let j = addTask[i].id;
+                    users[j]['tareas'].push(newTask);
+                    updateTable(users);
+                    formAdd.reset();
+                    alertContainer.classList.remove('show');
+                }
+            })
+        })
+    }
+
+    for (let i = 0; i < deleteTask.length; i++) {
+        deleteTask[i].addEventListener('click', () => {
+            const alert = document.querySelector('.alert');
+            const alertContainer = document.querySelector('.alert-container');
+            let taskToDelete = users[deleteTask[i].id]['tareas'];
+            let options = ``;
+            for (let j = 0; j < taskToDelete.length; j++) {
+                options += `
+                <option value="${taskToDelete[j]}">${taskToDelete[j]}</option>
+                `;
+            }
+            alertContainer.classList.add('show');
+            alert.innerHTML = `
+            <i id="closeRemove" class="fa-solid fa-x"></i>
+            <img class="img-alert" src="./coderhouse.jpeg" alt="">
+            <p>Que tarea deseas eliminarle a ${users[i]['nombre']}?</p>
+            <form id="remove">
+                <select class="new-user" id="remove-task" name="remove-task">
+                    ${options}
+                </select>
+                <button type="submit">Remove</button>
+            </form>
+        `;
+            const TaskToDInput = document.getElementById('new-task');
+            const closeRemove = document.getElementById('closeRemove');
+            closeRemove.addEventListener('click', () => {
+                alertContainer.classList.remove('show');
+            })
+
+            const formRemove = document.getElementById('remove');
+            formRemove.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const formTaskToDelete = new FormData(e.target);
+                let taskD = formTaskToDelete.get('remove-task');
+                if (taskD.length < 4) {
+                    invalid(TaskToDInput);
+                } else {
+                    let j = deleteTask[i].id;
+                    let indexOf = users[j]['tareas'].indexOf(taskD);
+                    users[j]['tareas'].splice(indexOf, 1);
+                    formRemove.reset();
+                    alertContainer.classList.remove('show');
+                    updateTable(users);
+                }
+            })
+        })
+    }
 }
 
-updateUsers(users);
-//     1. Ingresar Usuario
-//     2. Ver Usuarios Y Sus Datos
-//     3. Buscar un Usuario
-//     4. Agregarle una tarea a un usuario
-//     5. Eliminar una tarea de un usuario
-//     6. Ver tareas de un usuario
-//     7. Ver usuarios que tienen tareas
-//     8. Ver tareas
-//     9. Eliminar un Usuario
-
-
-
+updateTable(users);
 
 // new user
 const newUserButton = document.getElementById('new-user');
@@ -165,6 +249,7 @@ const deleteUser = (array, indice) => {
     const alertContainer = document.querySelector('.alert-container');
     alertContainer.classList.add('show');
     alert.innerHTML = `
+        <img class="img-alert" src="./coderhouse.jpeg" alt="">
         <p>Deseas Eliminar los datos de ${array[indice]['nombre']}?</p>
         <div>
             <button id="si">SI</button>
@@ -176,13 +261,12 @@ const deleteUser = (array, indice) => {
     resYes.addEventListener('click', () => {
         alertContainer.classList.remove('show');
         array.splice(indice, 1);
-        updateUsers(array);
+        updateTable(array);
     })
     const resNo = document.getElementById('no');
     resNo.addEventListener('click', () => {
         alertContainer.classList.remove('show');
     })
-
 }
 
 const form = document.getElementById('form-user');
@@ -193,11 +277,10 @@ const email = document.getElementById('email');
 const address = document.getElementById('address');
 const task = document.getElementById('task');
 
-uName.value = 'Leandro';
-lastName.value = 'Paredes';
-age.value='18';
-email.value='lea@gmail.com';
-
+// uName.value = 'Leandro';
+// lastName.value = 'Paredes';
+// age.value='18';
+// email.value='lea@gmail.com';
 
 
 const invalid = (input) => {
@@ -220,9 +303,9 @@ form.addEventListener('submit', (e) => {
         tareas: formUser.get('task')
     };
 
-    if(dataUser.tareas === null || dataUser.tareas.length == 0){
+    if (dataUser.tareas === null || dataUser.tareas.length == 0) {
         dataUser.tareas = [];
-    }else{
+    } else {
         dataUser.tareas = [`${formUser.get('task')}`];
     }
 
@@ -240,81 +323,8 @@ form.addEventListener('submit', (e) => {
     }
     else {
         users.push(dataUser);
-        updateUsers(users);
+        updateTable(users);
         form.reset();
         closeButton.click();
     }
-
 });
-/*
-Leandro
-Paredes
-leo@gmail.com
-*/
-
-const validateInput = (inputToValidate) => {
-    if (inputToValidate == null) {
-        return false
-    } else if (inputToValidate === '') {
-        return false
-    } else {
-        return true
-    }
-}
-
-const validateNumber = (num) => {
-    if (num === null) {
-        return false;
-    } else if (num === '' || num.includes(' ')) {
-        return false;
-    } else if (isNaN(Number(num))) {
-        return false;
-    } else if (Number(num) <= 0) {
-        return false;
-    }
-    else {
-        return true;
-    }
-}
-
-const validateDir = (dir) => {
-    if (dir === null || dir === undefined) {
-        return null;
-    } else if (dir === '') {
-        return null;
-    } else {
-        return dir;
-    }
-}
-
-const question = (variable, texto, isNaN, canBeNull) => {
-    while (true) {
-        if (isNaN && !canBeNull) {
-            variable = prompt(texto);
-            let valid = validateInput(variable);
-            if (valid) {
-                return variable;
-            }
-        } else if (!isNaN) {
-            variable = prompt(texto);
-            let valid = validateNumber(variable);
-            if (valid) {
-                return variable = Number(variable);
-            } else {
-                console.log("%cDebes Ingresar una edad correcta", "color:red")
-            }
-        } else {
-            variable = prompt(texto);
-            return variable = validateDir(variable);
-        }
-    }
-}
-
-const searchOne = (name, array) => {
-    for (let i = 0; i < array.length; i++) {
-        if (array[i]['nombre'].toLowerCase() === name) {
-            return i;
-        }
-    }
-    return 'Not Found';
-}

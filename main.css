@@ -100,12 +100,17 @@ h3 {
     outline: none;
     border-bottom: 2px solid black;
     background: transparent;
+    min-width: 40px !important;
 }
 .new-user:focus::placeholder{
     color: #000;
 }
 input[name="age"]{
-    width: 70px;
+    width: 40px;
+}
+
+.add-user .column6{
+    padding-right: 40px;
 }
 .center-td{
     position: absolute;
@@ -117,7 +122,7 @@ input[name="age"]{
     padding-left: 0;
 }
 
-#close{
+#close,#closeAdd,#closeRemove{
     position: absolute;
     padding: 10px 15px;
     border-radius: 50%;
@@ -128,8 +133,57 @@ input[name="age"]{
     top: 200px;
     font-weight: 900;
 }
-#close:hover{
+
+#close{
+    background: rgba(15, 15, 15, 0.342);
     color: #ff0000;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#closeAdd,#closeRemove{
+    right: 20px;
+    top: 20px;
+    background: rgba(15, 15, 15, 0);
+    color: #ff0000;
+}
+#closeAdd:hover,#closeRemove:hover{
+    background: rgba(15, 15, 15, 0.041);
+    color: #ff0000;
+}
+#close:hover{
+    background: #ff00001c;
+}
+#add,#remove{
+    text-align: center;
+}
+
+#add input,#remove select{
+    margin-top: 25px;
+    width: 100%;
+}
+#add button,#remove button{
+    margin-top: 25px;
+    padding: 7px 14px;
+    border: none;
+    outline: none;
+    background-color: #99ee19;
+    border-radius: 4px;
+}
+
+#remove button{
+    background-color: #ff0000;
+    color: #fff;
+}
+#remove button:hover{
+    background-color: #ff00001e;
+    color: rgb(0, 0, 0);
+    outline: 2px solid #ff0000;
+}
+#add button:hover{
+    background-color: #99ee1946;
+    outline: 2px solid #99ee19;
 }
 .new{
     width: 100%;
@@ -175,6 +229,13 @@ input[name="age"]{
 .wrap-table{
     width: 90%;
     margin: auto;
+}
+.wrap-table2{
+    width: 99%;
+}
+
+.add-user{
+    padding: 33px 7px;
 }
 
 table {
@@ -288,6 +349,7 @@ tbody tr:hover {
     display: inline-block;
     width: 90%;
     color: #ff0000;
+    padding-left: 15px;
 }
 
 .entregas{
@@ -371,7 +433,8 @@ i{
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 2700;
+
+    z-index: 9999;
     background: #00000086;
     backdrop-filter: blur(2px);
     display: flex;
@@ -384,6 +447,7 @@ i{
     --transform: translateY(-100vh);
     --transition: transform .8s;
 }
+
 
 .show{
     opacity: 1;
@@ -405,6 +469,7 @@ i{
 
     transform: var(--transform);
     transition:var(--transition);
+    position: relative;
 }
 
 .alert div{
@@ -414,6 +479,7 @@ i{
     justify-content: center;
     gap: 30px;
     align-items: center;
+    position: relative;
 }
 
 .alert div button{
@@ -439,11 +505,40 @@ i{
 .alert div button:nth-child(2){
     background: rgb(255, 0, 0);
     color: rgb(255, 255, 255);
+    max-width: 75.63px;
 }
 .alert div button:nth-child(2):hover{
     background: rgba(255, 0, 0, 0);
     color: rgb(0, 0, 0);
     outline:2px solid #ff0000;
+}
+.img-alert{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+.add{
+    position: absolute;
+    right: 115px;
+    background: #99ee19;
+    border-radius: 4px;
+    font-size: 15px;
+    color: #fff;
+    padding: 5px;
+}
+
+.deleteTask{
+    position: absolute;
+    right: 55px;
+    background: #ff0000;
+    border-radius: 4px;
+    font-size: 15px;
+    color: #fff;
+    padding: 5px;
 }
 
 .alert p{
@@ -454,8 +549,42 @@ i{
     opacity: 1 !important;
 }
 
+@media screen and (max-width:1324px) {
+    .add{
+        right: 75px;
+    }
+    
+    .deleteTask{
+        right: 25px;
+    }
+}
+@media screen and (max-width:1150px) {
+    .add{
+        right: 65px;
+    }
+    
+    .deleteTask{
+        right: 15px;
+    }
+}
+@media screen and (max-width:1060px) {
+    .add{
+        right: 40px;
+    }
+    
+    .deleteTask{
+        right: 5px;
+    }
+}
 
 @media screen and (max-width: 992px) {
+    .add{
+        right: 40%;
+    }
+    
+    .deleteTask{
+        right: 30%;
+    }
     .entregas{
         width: 25%; 
         right: 30%;
@@ -568,6 +697,13 @@ i{
     }
 }
 @media (max-width: 576px) {
+    .add{
+        right: 30%;
+    }
+    
+    .deleteTask{
+        right: 10%;
+    }
     .container-table100 {
         padding-left: 15px;
         padding-right: 15px;
@@ -580,6 +716,13 @@ i{
     }
     .delete{
         right: 2%;
+    }
+    .add{
+        right: 45px;
+    }
+    
+    .deleteTask{
+        right: 5px;
     }
 }
 
@@ -596,5 +739,14 @@ i{
     .alert{
         width: 400px;
         height: 300px;
+    }
+}
+@media screen and (max-width:350px){
+    .center{
+        text-align: center;
+    }
+
+    .container-table{
+        padding: 33px 5px;
     }
 }
