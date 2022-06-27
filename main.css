@@ -112,6 +112,17 @@ input[name="age"]{
 .add-user .column6{
     padding-right: 40px;
 }
+
+.add-user table tbody tr:nth-child(3) td:nth-child(1):before {
+    content: "" !important;
+}
+
+.close{
+    background: #ff0000 !important;
+    color: #fff;
+    margin-left: 15px;
+    display: none;
+}
 .center-td{
     position: absolute;
     left: 50%;
@@ -578,6 +589,23 @@ i{
 }
 
 @media screen and (max-width: 992px) {
+    .close{
+        display: block;
+        border: none;
+    }
+
+    .close:hover{
+        background: transparent !important;
+        color: #000;
+        outline: 2px solid #ff0000 !important;
+    }
+    .center-td{
+        width: max-content;
+        left: 30%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        justify-content: flex-start;
+    }
     .add{
         right: 40%;
     }

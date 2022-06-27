@@ -234,12 +234,17 @@ updateTable(users);
 const newUserButton = document.getElementById('new-user');
 const newUserContainer = document.getElementById('add-user');
 const closeButton = document.getElementById('close');
+const closeButtonRes = document.querySelector('.close');
+
 
 newUserButton.addEventListener('click', () => {
     newUserContainer.classList.add('show');
 })
 
 closeButton.addEventListener('click', () => {
+    newUserContainer.classList.remove('show');
+})
+closeButtonRes.addEventListener('click', () => {
     newUserContainer.classList.remove('show');
 })
 
