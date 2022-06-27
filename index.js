@@ -21,7 +21,7 @@ let users = [
         edad: 69,
         correo: 'juan@gmail.com',
         direccion: null,
-        tareas: [] //'Programar el Both con Atom', 'Aprender Svelte'
+        tareas: ['Programar el Both con Atom', 'Aprender Svelte'] 
     },
     {
         nombre: 'Luana',
@@ -151,7 +151,7 @@ const updateTable = (users) => {
         <img class="img-alert" src="./coderhouse.jpeg" alt="">
         <p>Que tarea deseas agregarle a ${users[i]['nombre']}?</p>
         <form id="add">
-            <input class="new-user" id="new-task" name="new-task" type="text">
+            <input autocomplete="off" class="new-user" id="new-task" name="new-task" type="text">
             <button type="submit">Add</button>
         </form>
     `;
