@@ -738,6 +738,9 @@ i{
     }
 }
 @media screen and (max-width:460px){
+    .container-table{
+        padding: 33px 0;
+    }
     .entregas{
         width: 45%; 
         right: 18%;
@@ -767,7 +770,9 @@ i{
     .alert{
         width: 400px;
         height: 300px;
+        justify-content: flex-end;
     }
+
 }
 @media screen and (max-width:350px){
     .center{
