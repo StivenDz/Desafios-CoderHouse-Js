@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="./coderhouse.jpeg" type="image/x-icon">
+    
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://kit.fontawesome.com/53d40d2367.js" crossorigin="anonymous"></script>
+
+    <title>Desafío: Crear un algoritmo utilizando un ciclo</title>
+</head>
+
+<body>
+    <div class="alert-container">
+        <div class="alert">
+            
+        </div>
+    </div>
+    <header>
+        <img src="./coderhouse.jpeg" alt="">
+    </header>
+    <main>
+        <div class="title">
+
+            <h1>Desafío: Simulador Interactivo Javascript Basico</h1>
+        </div>
+        <h3 class="text-center">Manejo De Usuarios Y Asignacion de Tareas</h3>
+
+        <div class="container-table add-user" id="add-user">
+            <i id="close" class="fa-solid fa-x"></i>
+            <div class="wrap-table">
+                <div class="table">
+                    <table >
+                        <thead>
+                            <tr class="table100-head">
+                                <th class="column1">User Name</th>
+                                <th class="column2">Last Name</th>
+                                <th class="column3">Age</th>
+                                <th class="column4">Email</th>
+                                <th class="column5">Address</th>
+                                <th class="column6">Tasks</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <form id="form-user">
+                                    <tr>
+                                    <td class="column1">
+                                        <input class="new-user" autocomplete="off" placeholder="Name" type="text" name="name" id="name">
+                                    </td>
+                                    <td class="column2">
+                                        <input class="new-user" autocomplete="off" placeholder="Last Name"  type="text" name="lastName" id="lastName">
+                                    </td>
+                                    <td class="column3">
+                                        <input class="new-user" autocomplete="off" placeholder="18" type="number" name="age" id="age">
+                                    </td>
+                                    <td class="column4">
+                                        <input class="new-user" autocomplete="off" placeholder="coder@example.com" type="email" name="email" id="email">
+                                    </td>
+                                    <td class="column5">
+                                        <input class="new-user" autocomplete="off" placeholder="Address" type="text" name="address" id="address">
+                                    </td>
+                                    <td class="column6">
+                                        <input class="new-user" autocomplete="off" placeholder="task" type="text" name="task" id="task">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="center-td">
+                                        <button type="submit">Add User</button>
+                                    </td>
+                                </tr>
+                            </form>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="new">
+                <button id="new-user">Add User</button>
+            </div>
+            <div class="container-table">
+                <div class="wrap-table">
+                    <div class="table">
+                        <table id="table">
+                            <thead>
+                                <tr class="table100-head">
+                                    <th class="column1">User Name</th>
+                                    <th class="column2">Last Name</th>
+                                    <th class="column3">Age</th>
+                                    <th class="column4">Email</th>
+                                    <th class="column5">Address</th>
+                                    <th class="column6">Tareas</th>
+                                </tr>
+                            </thead>
+                            <tbody id="users">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <script src="./indexz.js"></script>
+</body>
+
+</html>
