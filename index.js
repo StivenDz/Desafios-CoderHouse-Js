@@ -55,7 +55,18 @@ let htmlUsers = ``;
 let listTasks = ``;
 let usTask;
 
+// localStorage.setItem('users',(JSON.stringify(users)));
+// users = JSON.parse(localStorage.getItem('users'));
+
 const updateTable = (users) => {
+
+    localStorage.setItem('users',(JSON.stringify(users)));
+    console.log(typeof localStorage.getItem('users'));
+    users = JSON.parse(localStorage.getItem('users'));
+    console.log(typeof users);
+
+    console.log(users);
+
     htmlUsers = "";
     for (let i = 0; i < users.length; i++) {
         listTasks = ``;
@@ -227,8 +238,13 @@ const updateTable = (users) => {
         })
     }
 }
-
-updateTable(users);
+//localStorage.clear()
+if(localStorage.getItem('users')){
+    updateTable(JSON.parse(localStorage.getItem('users')));
+}else{
+    updateTable(users)
+    console.log('No hay localStorage');
+}
 
 // new user
 const newUserButton = document.getElementById('new-user');
